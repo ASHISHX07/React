@@ -1,22 +1,19 @@
-import { StrictMode } from 'react'
+import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
-const myElement = (
-  <table>
-    <tr>
-      <th>Name</th>
-    </tr>
-    <tr>
-      <td>Ashish</td>
-    </tr>
-    <tr>
-      <td>Kinjal</td>
-    </tr>
-  </table>
-)
+function Counter() {
+  // Destructuring the array returned by useState
+  const [count, setCount] = useState(0);
+  
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Count: {count}
+    </button>
+  );
+}
 
-createRoot(document.getElementById('ash')).render(
-  myElement
-)
+createRoot(document.getElementById('root')).render(
+  <Counter />
+);

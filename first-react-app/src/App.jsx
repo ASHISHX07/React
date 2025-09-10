@@ -1,8 +1,18 @@
+const fruitList = ['Apple', 'Banana', 'Orange', 'Mango']
+
 function App () {
   return (
-    <div>
-      <h1>Hello world!</h1>
-    </div>
+    <ul>
+      {fruitList.map((fruit, index, array) => {
+        return (
+          <li key={fruit}>
+            Number: {fruit}, index: {index}, array: {array}
+          </li>
+        )
+      }
+      )}
+      
+    </ul>
   );
 }
 
