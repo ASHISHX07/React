@@ -3,15 +3,25 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 
-function Fruit() {
-    let a = 4;
-    return (<>
-    <h1>{a < 6 ? "Apple" : "Banana"}</h1>
-    </>);
+function Car(props) {
+    return (
+        <>
+            <h2>
+                <h2>I am a {props.brand}!</h2>
+            </h2>
+        </>
+    );
+}
+
+function Garage() {
+  return (
+    <>
+      <h1>Who lives in my garage?</h1>
+      <Car brand="Ford" />
+    </>
+  );
 }
 
 createRoot(document.getElementById("root")).render(
-    <>
-        <Fruit />
-    </>
+  <Garage />
 );
