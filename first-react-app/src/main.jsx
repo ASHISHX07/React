@@ -3,25 +3,27 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 
-function Car(props) {
-    return (
-        <>
-            <h2>
-                <h2>I am a {props.brand}!</h2>
-            </h2>
-        </>
-    );
+function Missed() {
+  return (
+    <h2>Missed!</h2>
+  )
 }
 
-function Garage() {
+function Goal() {
+  return (
+    <h2>Goal!</h2>
+  )
+}
+
+function Football(props) {
+  const isGoal = props.isGoal;
   return (
     <>
-      <h1>Who lives in my garage?</h1>
-      <Car brand="Ford" />
+      {isGoal ? <Goal /> : <Missed />}
     </>
-  );
+  )
 }
 
-createRoot(document.getElementById("root")).render(
-  <Garage />
+createRoot(document.getElementById('root')).render(
+  <Football isGoal={false} />
 );
