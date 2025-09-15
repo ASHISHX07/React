@@ -3,27 +3,22 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 
-function Missed() {
+function MyForm() {
+  const [myCar, setMyCar] = useState("Volvo");
+
+  const handleChange = (event) => {
+    setMyCar(event.target.value)
+  }
+
   return (
-    <h2>Missed!</h2>
+    <form>
+      <select value={myCar} onChange={handleChange}>
+        <option value="Ford">Ford</option>
+        <option value="Volvo">Volvo</option>
+        <option value="Fiat">Fiat</option>
+      </select>
+    </form>
   )
 }
 
-function Goal() {
-  return (
-    <h2>Goal!</h2>
-  )
-}
-
-function Football(props) {
-  const isGoal = props.isGoal;
-  return (
-    <>
-      {isGoal ? <Goal /> : <Missed />}
-    </>
-  )
-}
-
-createRoot(document.getElementById('root')).render(
-  <Football isGoal={false} />
-);
+createRoot(document.getElementById("root")).render(<MyForm />);
