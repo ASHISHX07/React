@@ -1,24 +1,17 @@
-import { StrictMode, useState } from "react";
+import { StrictMode, useState, Suspense, lazy } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
+import { createPortal } from 'react-dom';
+import styles from './Button.module.css';
+import styles from './BlueHeader.module.css';
 
-function MyForm() {
-  const [myCar, setMyCar] = useState("Volvo");
-
-  const handleChange = (event) => {
-    setMyCar(event.target.value)
-  }
-
+function App() {
   return (
-    <form>
-      <select value={myCar} onChange={handleChange}>
-        <option value="Ford">Ford</option>
-        <option value="Volvo">Volvo</option>
-        <option value="Fiat">Fiat</option>
-      </select>
-    </form>
-  )
+    <div>
+      <h1 className="myheader">
+        My Header
+      </h1>
+    </div>
+  );
 }
 
-createRoot(document.getElementById("root")).render(<MyForm />);
+createRoot(document.getElementById("root")).render(<App />);
