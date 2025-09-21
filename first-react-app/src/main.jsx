@@ -1,16 +1,29 @@
 import { StrictMode, useState, Suspense, lazy } from "react";
 import { createRoot } from "react-dom/client";
 import { createPortal } from 'react-dom';
-import styles from './Button.module.css';
 import styles from './BlueHeader.module.css';
+import { styled, createGlobalStyle} from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  h1 {
+    color: white;
+    background-color: purple;
+    font-family: Arial, sans-serif;
+  }
+
+  .myparagraph {
+    font-family: courier, monospace;
+    color: blue;
+  }
+`;
 
 function App() {
   return (
-    <div>
-      <h1 className="myheader">
-        My Header
-      </h1>
-    </div>
+    <>
+      <GlobalStyle />
+      <h1>Welcome!</h1>
+      <p className="myparagraph">This paragraph is styled with global styles.</p>
+    </>
   );
 }
 
